@@ -33,7 +33,7 @@ def Uptown():
         uptowntext += str(manhattan[i]["route"])
         uptowntext += " train in "
         uptowntext += str(manhattan[i]["minutes"])
-        uptowntext += " min / "
+        uptowntext += " min  "
         return uptowntext
 
 def Downtown():
@@ -44,23 +44,26 @@ def Downtown():
         downtowntext += str(brooklyn[j]["route"])
         downtowntext += " train in "
         downtowntext += str(brooklyn[j]["minutes"])
-        downtowntext += " min / "
+        downtowntext += " min  "
         return downtowntext
 
-def main(): 
-    global uptowntext
+def AllUptown():
     totaluptowntext = ""
-    totaldowntowntext = ""
     Jsonify(twothreeURL)
     Info()
     totaluptowntext += Uptown()
     Jsonify(fourfiveURL)
     totaluptowntext += Uptown()
     print(totaluptowntext)
-    print('---------')
+    return totaluptowntext
+
+def AllDowntown():
+    totaldowntowntext = "" 
     Jsonify(twothreeURL)
     totaldowntowntext += Downtown()
     Jsonify(fourfiveURL)
     totaldowntowntext += Downtown()
     print(totaldowntowntext)
-main() # set time limit
+    return totaldowntowntext
+
+
